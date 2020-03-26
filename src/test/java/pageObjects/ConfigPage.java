@@ -3,7 +3,6 @@ package pageObjects;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import org.openqa.selenium.By;
-import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -18,35 +17,39 @@ public class ConfigPage extends PageFather {
 
     private AppiumDriver<MobileElement> driver;
     private WebDriverWait webDriverWait;
+
     public ConfigPage(AppiumDriver<MobileElement> driver) {
         super(driver);
         this.driver = driver;
-        PageFactory.initElements(driver,this);
-        webDriverWait = new WebDriverWait(driver,Long.parseLong("30"));
+        webDriverWait = new WebDriverWait(driver, Long.parseLong("30"));
     }
 
-    public ConfigPage setCurrencyToEUR(){
+    public ConfigPage setCurrencyToEUR() {
         webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(currencyText));
         driver.findElement(selectCurrencyButton).click();
         webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(EURSelector));
         driver.findElement(EURSelector).click();
         return this;
     }
-    public ConfigPage turnOffNotifications(){
+
+    public ConfigPage turnOffNotifications() {
         webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(notificationsCheckBox));
         driver.findElement(notificationsCheckBox).click();
         return this;
     }
-    public ConfigPage openFAQsActivity(){
+
+    public ConfigPage openFAQsActivity() {
         webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(contactFAQsButton));
         driver.findElement(contactFAQsButton).click();
         return this;
     }
-    public String getNotCheckBoxStatus(){
+
+    public String getNotCheckBoxStatus() {
         webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(notificationsCheckBoxStatus));
         return driver.findElement(notificationsCheckBoxStatus).getAttribute("checked");
     }
-    public String getCurrentCurrency(){
+
+    public String getCurrentCurrency() {
         webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(currencyText));
         return driver.findElement(currencyText).getText();
     }

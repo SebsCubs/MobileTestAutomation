@@ -1,14 +1,15 @@
 package steps;
 
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileElement;
 import io.cucumber.java.en.Given;
 import pageObjects.HomePage;
 
 public class HomePageSteps {
     private HomePage homePage;
-    private AppiumDriver driver;
+
     public HomePageSteps(Hooks hooks){
-        driver = hooks.getWebDriver();
+        AppiumDriver<MobileElement> driver = hooks.getWebDriver();
         homePage = new HomePage(driver);
     }
 

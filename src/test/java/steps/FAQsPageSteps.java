@@ -1,6 +1,7 @@
 package steps;
 
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileElement;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -10,9 +11,9 @@ import pageObjects.FAQsPage;
 
 public class FAQsPageSteps {
     private FAQsPage faQsPage;
-    private AppiumDriver driver;
-    public FAQsPageSteps(Hooks hooks){
-        driver = hooks.getWebDriver();
+
+    public FAQsPageSteps(Hooks hooks) {
+        AppiumDriver<MobileElement> driver = hooks.getWebDriver();
         faQsPage = new FAQsPage(driver);
     }
 

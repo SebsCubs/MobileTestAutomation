@@ -1,6 +1,7 @@
 package steps;
 
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileElement;
 import io.cucumber.java.en.Then;
 import org.hamcrest.CoreMatchers;
 import org.hamcrest.MatcherAssert;
@@ -8,9 +9,9 @@ import pageObjects.SearchResultsPage;
 
 public class SearchResultsPageSteps {
     private SearchResultsPage searchResultsPage;
-    private AppiumDriver driver;
-    public SearchResultsPageSteps(Hooks hooks){
-        driver = hooks.getWebDriver();
+
+    public SearchResultsPageSteps(Hooks hooks) {
+        AppiumDriver<MobileElement> driver = hooks.getWebDriver();
         searchResultsPage = new SearchResultsPage(driver);
     }
 

@@ -1,6 +1,7 @@
 package steps;
 
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileElement;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -10,16 +11,16 @@ import pageObjects.ConfigPage;
 
 public class ConfigPageSteps {
     private ConfigPage configPage;
-    private AppiumDriver driver;
-    public ConfigPageSteps(Hooks hooks){
-        driver = hooks.getWebDriver();
+
+    public ConfigPageSteps(Hooks hooks) {
+        AppiumDriver<MobileElement> driver = hooks.getWebDriver();
         configPage = new ConfigPage(driver);
     }
 
     @Given("the current currency is {string}")
     public void theCurrentCurrencyIs(String currentCurrency) {
         String actualCurrency = configPage.getCurrentCurrency();
-        MatcherAssert.assertThat("Error: the current currency is not"+currentCurrency,
+        MatcherAssert.assertThat("Error: the current currency is not" + currentCurrency,
                 actualCurrency.contains(currentCurrency), CoreMatchers.equalTo(true));
     }
 
