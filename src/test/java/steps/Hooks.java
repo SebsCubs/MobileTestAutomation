@@ -37,21 +37,18 @@ public class Hooks {
             URL sauceLabsServer = new URL("http://ondemand.saucelabs.com:80/wd/hub");
 
             DesiredCapabilities caps = DesiredCapabilities.android();
-            caps.setCapability("appiumVersion", "1.9.1");
-            caps.setCapability("deviceName","Google Pixel 3 XL GoogleAPI Emulator");
+            caps.setCapability("appiumVersion", "1.15.0");
+            caps.setCapability("deviceName","Google Pixel 3 GoogleAPI Emulator");
             caps.setCapability("deviceOrientation", "portrait");
             caps.setCapability("browserName", "");
             caps.setCapability("platformVersion","9.0");
             caps.setCapability("platformName","Android");
-            caps.setCapability("automationName", "UiAutomator1");
-            caps.setCapability("androidInstallTimeout", 180000);
-
-            caps.setCapability("build", "Trainline Suite");
-            caps.setCapability("name", scenario.getName());
+            caps.setCapability("app","sauce-storage:thetrainline.apk");
 
             caps.setCapability("username", System.getenv("SauceLabsUser"));
             caps.setCapability("accesskey", System.getenv("SauceLabsKey"));
-            caps.setCapability("app", "sauce-storage:thetrainline");
+            caps.setCapability("build", "Trainline Suite");
+            caps.setCapability("name", scenario.getName());
             driver = new AppiumDriver<>(sauceLabsServer, caps);
         }
 
