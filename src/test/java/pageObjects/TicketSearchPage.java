@@ -31,8 +31,6 @@ public class TicketSearchPage extends HomePage {
     public TicketSearchPage journeySearch(String origin, String destination) {
         webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(originButton));
         driver.findElement(originButton).click();
-        webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(GPSaccessPermission));
-        driver.findElement(GPSaccessPermission).click();
         webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(stationSearch));
         webDriverWait.until(ExpectedConditions.elementToBeClickable(stationSearch));
         driver.findElement(stationSearch).click();

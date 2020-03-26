@@ -7,7 +7,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class SearchResultsPage extends PageFather {
-    private By popUpCloseButton = By.id("button1");
+    private By popUpCloseButton = By.id("android:id/button1");
     private By trainSearchResults = By.id("train_search_results_list");
     private By firstSearchResult = By.xpath("//*[@resource-id='com.thetrainline:id/train_search_results_list']/android.widget.LinearLayout[1]");
 

@@ -44,6 +44,7 @@ public class Hooks {
             caps.setCapability("platformVersion","9.0");
             caps.setCapability("platformName","Android");
             caps.setCapability("app","sauce-storage:thetrainline.apk");
+            caps.setCapability("autoGrantPermissions", true);
 
             caps.setCapability("username", System.getenv("SauceLabsUser"));
             caps.setCapability("accesskey", System.getenv("SauceLabsKey"));
