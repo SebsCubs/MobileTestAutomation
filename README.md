@@ -1,4 +1,4 @@
-# MobileTestingCH
+# Mobile testing with Appium
 
 Android testing framework using Appium for the trainline app
 
